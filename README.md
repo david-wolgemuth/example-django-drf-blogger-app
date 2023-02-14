@@ -2,7 +2,7 @@
 
 used for presentation https://www.youtube.com/watch?v=3tEe-HbRCB0
 
-see ppt: https://docs.google.com/presentation/d/1Ed5MekePfRr-phjNLjRHeyDCZdDsMZ2CNFUEKtQHCNA/edit#slide=id.g1f88252dc4_0_1535
+see ppt: https://docs.google.com/presentation/d/1Ed5MekePfRr-phjNLjRHeyDCZdDsMZ2CNFUEKtQHCNA/edit#slide=id.p
 
 ## visuals
 
