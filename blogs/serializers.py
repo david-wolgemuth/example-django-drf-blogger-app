@@ -1,39 +1,64 @@
 from rest_framework import serializers
 
-from config.serializers import UserSerializer
-
-from .models import Author, Blog
-
+from .models import Author, Blog, Favorite
 
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ['url', 'id', 'user', 'name']
+        fields = [
+            # 'url',
+            # 'oops',
+            'id', 'user', 'name']
 
 
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
         fields = [
-            'url',
+            # 'url',
             'id',
             'author',
             'title',
             # 'content',
         ]
 
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
+        fields = [
+            'url',
+            'id',
+            'user',
+            'blog',
+        ]
 
-class AuthorDetailSerializer(AuthorSerializer):
-    user = UserSerializer(many=False, read_only=True)
-    blog_set = BlogSerializer(many=True, read_only=True)
-
-    class Meta(AuthorSerializer.Meta):
-        fields = AuthorSerializer.Meta.fields + ['blog_set']
 
 
-class BlogDetailSerializer(BlogSerializer):
-    author = AuthorSerializer(many=False, read_only=True)
+# -----------------
+# Verbose / "Explicit" Serializer
+#
+#
+#
+#
+#
+#
 
-    class Meta(BlogSerializer.Meta):
-        fields = BlogSerializer.Meta.fields + ['author', 'content']
+
+class BlogExplicitSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    author = serializers.IntegerField()
+    title = serializers.CharField()
+    content = serializers.CharField()
+
+    class Meta:
+        model = Blog
+        fields = [
+            # 'url',
+            'id',
+            'author',
+            'title',
+            'content',
+        ]
+
+

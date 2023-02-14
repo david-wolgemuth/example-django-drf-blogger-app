@@ -32,30 +32,3 @@ class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permission
         fields = ['url', "id", "name", "codename", "content_type"]
-
-
-class UserDetailSerializer(serializers.ModelSerializer):
-    groups = GroupSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = User
-        fields = [
-            'url',
-            'id',
-            # 'last_login',
-            'is_superuser',
-            'username',
-            # 'first_name',
-            # 'last_name',
-            'email',
-            'is_staff',
-            'is_active',
-            # 'date_joined',
-            'groups',
-            'user_permissions',
-        ]
-        # fields = ['url', 'id', 'username', 'email']
-
-
-class GroupDetailSerializer(GroupSerializer):
-    permissions = PermissionSerializer(many=True, read_only=True)

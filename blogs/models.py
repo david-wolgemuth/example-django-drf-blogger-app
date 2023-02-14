@@ -12,6 +12,7 @@ class Author(models.Model):
         on_delete=models.CASCADE,
     )
     name = models.TextField()
+    bio = models.TextField(default="")
 
 
 class Blog(models.Model):
@@ -21,3 +22,14 @@ class Blog(models.Model):
     )
     title = models.TextField()
     content = models.TextField()
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+    )
+    blog = models.ForeignKey(
+        Blog,
+        on_delete=models.CASCADE,
+    )

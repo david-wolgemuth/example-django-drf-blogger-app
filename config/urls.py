@@ -18,7 +18,7 @@ from django.urls import include, path
 
 from rest_framework import routers
 
-from blogs.views import AuthorViewSet, BlogViewSet
+from blogs.views import AuthorViewSet, BlogViewSet, FavoriteViewSet
 from .views import UserViewSet, GroupViewSet, PermissionViewSet
 
 router = routers.DefaultRouter()
@@ -26,6 +26,7 @@ router = routers.DefaultRouter()
 router.register(r'authors', AuthorViewSet)
 router.register(r'blogs', BlogViewSet)
 router.register(r'users', UserViewSet)
+router.register(r'favorites', FavoriteViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'permissions', PermissionViewSet)
 
